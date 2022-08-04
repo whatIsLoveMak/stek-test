@@ -4,21 +4,21 @@
       <div class="input-group">
         <t-input
             :type="'text'"
-            v-model="newItem.company"
+            v-model="$v.newItem.company.$model"
             :placeholder="'Название'"
-            :className="{'error': !$v.newItem.company.required}"
+            :className="{'error': ($v.newItem.company.$dirty && !$v.newItem.company.required)}"
         />
         <t-input
             :type="'text'"
             :placeholder="'Фио директора'"
-            v-model="newItem.name"
-            :className="{'error': $v.newItem.name.$invalid}"
+            v-model="$v.newItem.name.$model"
+            :className="{'error': ($v.newItem.name.$dirty && $v.newItem.name.$invalid)}"
         />
         <t-input
             :type="'phone'"
-            v-model="newItem.phone"
+            v-model="$v.newItem.phone.$model"
             :placeholder="'Номер телефона'"
-            :className="{'error': $v.newItem.phone.$invalid}"
+            :className="{'error': ($v.newItem.phone.$dirty && $v.newItem.phone.$invalid)}"
             :class="'input'"
         />
       </div>
@@ -38,7 +38,7 @@
 import TButton from "@/components/UI/tButton";
 import TInput from "@/components/UI/tInput";
 import { validationMixin } from 'vuelidate';
-import { required,minLength,numeric } from 'vuelidate/lib/validators';
+import { required,minLength,numeric} from 'vuelidate/lib/validators';
 
 export default {
   name: "tModal",
@@ -58,7 +58,7 @@ export default {
     newItem: {
       name: { required },
       company: { required },
-      phone: { required,minLegth: minLength(12),numeric },
+      phone: { required,numeric,minLength: minLength(12) },
     },
   },
   methods: {

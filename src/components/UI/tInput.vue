@@ -30,14 +30,6 @@ export default {
         type: [String, Number],
         default: '',
     },
-    innerLabel: {
-        type: [String, Number],
-        default: '',
-    },
-    errorInner: {
-         type: Array,
-      default: () => [],
-    },
   },
   methods: {
     input(event) {

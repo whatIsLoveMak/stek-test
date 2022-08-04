@@ -114,6 +114,9 @@ export default {
     },
     deleteItem(id) {
       this.items = this.items.filter((e) => e.id !== id)
+      if(this.items.length === 6){
+        this.page = 1
+      }
       localStorage.setItem('item', JSON.stringify(this.items))
     },
     sortName(value) {
@@ -132,13 +135,12 @@ export default {
   computed: {
     searchName() {
       const start = (this.page - 1) * 6
-      const end = this.page * 6 - 1
+      const end = this.page * 6
       const filteredItems = this.items.filter(item => item.name.toLowerCase().includes(this.name.toLowerCase()))
       return filteredItems.slice(start,end)
     },
     showNextButton(){
-      const end = this.page * 6 - 1
-      console.log(this.items.length, end)
+      const end = this.page * 6
       if(this.items.length > end) {
         return false
       }
@@ -198,11 +200,13 @@ export default {
     width: 100%;
     &-item {
       width: 100%;
+      transition: all 0.4s ease;
     }
     &-item:first-child, &-item:last-child {
       cursor: pointer;
       padding: 10px 0px;
       border-radius: 5px;
+
     }
     &-item:first-child {
       transform: rotate(180deg);
