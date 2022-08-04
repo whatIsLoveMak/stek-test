@@ -3,7 +3,7 @@
     <div class="table-grid__item-company">{{item.company}}</div>
     <div class="table-grid__item-name">{{item.name}}</div>
     <div class="table-grid__item-phone ">{{item.phone}}</div>
-    <div @click="deleteItem" class="table-grid__item-delete">X</div>
+    <div @click="deleteItem" class="table-grid__item-delete">&#10060;</div>
   </div>
 </template>
 

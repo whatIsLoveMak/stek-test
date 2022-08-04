@@ -26,7 +26,7 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
 button {
   border-radius: 10px;
   text-align: center;

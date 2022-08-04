@@ -15,9 +15,9 @@
       </div>
       <div class="table-pagination">
         <div class="table-pagination__row">
-          <div  :class="{'disabled':page < 2}" @click="page = page - 1" class="table-pagination__row-item">prev</div>
-          <div class="table-pagination__row-item">Страница {{page}}</div>
-          <div :class="{'disabled': showNextButton}" @click="page = page + 1" class="table-pagination__row-item">next</div>
+          <div  :class="{'disabled':page < 2}" @click="page = page - 1" class="table-pagination__row-item button">&#10148;</div>
+          <div class="table-pagination__row-item">Страница: {{page}}</div>
+          <div :class="{'disabled': showNextButton}" @click="page = page + 1" class="table-pagination__row-item button">&#10148;</div>
         </div>
       </div>
     </div>
@@ -101,7 +101,6 @@ export default {
     }
   },
   methods: {
-
     openModal() {
       this.showModal = true
     },
@@ -202,6 +201,11 @@ export default {
     }
     &-item:first-child, &-item:last-child {
       cursor: pointer;
+      padding: 10px 0px;
+      border-radius: 5px;
+    }
+    &-item:first-child {
+      transform: rotate(180deg);
     }
   }
 }

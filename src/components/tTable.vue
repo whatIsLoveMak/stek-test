@@ -45,6 +45,7 @@ export default {
 <style lang="scss">
 .bold {
   font-weight: 600;
+  cursor: pointer;
 }
   .table-grid {
     display: grid;
@@ -79,7 +80,7 @@ export default {
   }
 .list-enter-active,
 .list-leave-active {
-  transition: all 1s ease;
+  transition: all 0.5s linear;
 }
 .list-enter-from,
 .list-leave-to,
@@ -88,6 +89,6 @@ export default {
   transform: translateY(30px);
 }
 .list-move {
-  transition: transform 1s;
+  transition: transform 0.5s;
 }
 </style>

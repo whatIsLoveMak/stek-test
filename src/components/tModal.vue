@@ -38,7 +38,7 @@
 import TButton from "@/components/UI/tButton";
 import TInput from "@/components/UI/tInput";
 import { validationMixin } from 'vuelidate';
-import { required,minLength } from 'vuelidate/lib/validators';
+import { required,minLength,numeric } from 'vuelidate/lib/validators';
 
 export default {
   name: "tModal",
@@ -58,7 +58,7 @@ export default {
     newItem: {
       name: { required },
       company: { required },
-      phone: { required,minLegth: minLength(12) },
+      phone: { required,minLegth: minLength(12),numeric },
     },
   },
   methods: {
