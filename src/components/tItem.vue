@@ -1,8 +1,8 @@
 <template>
   <div class="table-grid__item">
-    <div class="table-grid__item-company">{{item.company}}</div>
-    <div class="table-grid__item-name">{{item.name}}</div>
-    <div class="table-grid__item-phone ">{{item.phone}}</div>
+    <div class="table-grid__item-company">{{ item.company }}</div>
+    <div class="table-grid__item-name">{{ item.name }}</div>
+    <div class="table-grid__item-phone">{{ item.phone }}</div>
     <div @click="deleteItem" class="table-grid__item-delete">&#10060;</div>
   </div>
 </template>
@@ -13,18 +13,15 @@ export default {
   props: {
     item: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   methods: {
     deleteItem() {
-      console.log(this.item.id)
-      this.$emit('delete-item', this.item.id)
-    }
-  }
-}
+      this.$emit("delete-item", this.item.id);
+    },
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
